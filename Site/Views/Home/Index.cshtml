@@ -1,0 +1,60 @@
+﻿
+@using Site.Entity
+@model IEnumerable<Product>
+
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Sumary", "Cart")
+            </ul>
+        </div>
+
+         
+        @Html.Action("_FeaturedProductList", "Home")
+
+    </div>
+    <div class="span9">
+        <div class="well np">
+            @Html.Action("Slider", "Home")
+        </div>
+        <!--
+    New Products
+    -->
+
+        <h3>Filmler </h3>
+        <hr class="soften" />
+
+
+        <ul class="thumbnails">
+            @foreach (var item in Model)
+            {
+                <li class="span3">
+                    <div class="thumbnail">
+
+
+                        <a href="/Home/ProductDetails/@item.ID"><img src="~/Content/image/@item.RESIM" style="max-height:267px; max-width:207px; min-height:267px; min-width:207px;" alt=""></a>
+                        <div class="caption cntr">
+                            <p>@item.OAD</p>
+                            <p><strong> @item.FIYAT ₺ </strong></p>
+                            <h4><a class="shopBtn" href="/Home/ProductDetails/@item.ID" title="add to cart" style="background-color:chartreuse"> Satın Al </a></h4>
+                            <h4><a class="shopBtn" href="/Home/KiralıkDetails/@item.ID" title="add to cart" style="background-color:chartreuse"> Kirala </a></h4>
+
+                            <br class="clr">
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+
+        <!--
+    Featured Products
+    -->
+       
+
+    </div>
+</div>
+

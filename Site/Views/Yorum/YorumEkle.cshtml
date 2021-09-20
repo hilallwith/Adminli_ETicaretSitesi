@@ -1,0 +1,16 @@
+﻿
+@using Site.Entity
+@model Yorum
+
+
+
+<div class="form-group">
+    <label>Yorum Yaz</label>
+    <text class="form-control" rows="3" placeholder="Yorum Yaz ..." style="width:300px; height:30px"></text>
+    <asp:TextBox runat="server"></asp:TextBox>
+   
+    <button>Ekle</button>
+</div>
+<br />
+<br />
+<p>@Model.Icerik</p>

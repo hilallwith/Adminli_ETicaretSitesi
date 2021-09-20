@@ -1,0 +1,82 @@
+﻿@model Site.Models.Kiralık
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="span12">
+
+        <div class="well well-small">
+            @if (Model.Kiralıklines.Count > 0)
+            {
+
+
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Resim</th>
+                            <th>Ad</th>
+
+                            <th>Adet</th>
+                            <th>Kiralama Tutarı</th>
+                            <th>Toplam Fiyat </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.Kiralıklines)
+                        {
+
+
+                        <tr>
+                            <td><img width="100" src="~/Content/image/@item.Product.RESIM" alt=""></td>
+                            <td>@item.Product.OAD</td>
+
+                            <td>@item.Quantity </td>
+                            <td>@item.Product.PIXEL ₺</td>
+                            <td>
+                                @((item.Product.PIXEL*item.Quantity).ToString("c"))
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("RemoveFromCart", "Kiralık"))
+                                {
+                                    @Html.Hidden("Id", item.Product.ID)
+                                    <button type="submit" class="btn btn-danger"><span class="icon-remove"></span>Sil</button>
+                                }
+                            </td>
+                        </tr>
+                        }
+                    @*<tr> 
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="label label-warning" style="display:block">Toplam Tutar : @Model.Kiralıklines.ToString("c") </th>
+                        <th></th>
+
+
+
+
+                    </tr>*@
+                    </tbody>
+                </table><br> }
+            else
+            {
+                <div class="alert alert-warning">
+                    <p>Sepetinizde Kiralanacak film bulunmamaktadır...</p>
+                </div>
+            }
+
+
+            <a href="/Home/Index" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Alışverişe Devam Et </a>
+            <a href="/Kiralık/Checkout" class="shopBtn btn-large pull-right">Sipariş Ver <span class="icon-arrow-right"></span></a>
+
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Index11";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <title>Result Visualization</title>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <script src="~/Scripts/jquery-1.7.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#btnPrint").click(function () {
+                var contents = $("#print_div").html();
+                var frame1 = $('<iframe />');
+                frame1[0].name = "frame1";
+                frame1.css({ "position": "absolute" });
+                $("body").append(frame1);
+                var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+                frameDoc.document.open();
+                //Create a new HTML document.
+                frameDoc.document.write('<html><head><title>KULLANICI LİSTESİ</title>');
+                frameDoc.document.write('</head><body>');
+                //Append the external CSS file.
+                frameDoc.document.write('<link href="style.css" rel="stylesheet" type="text/css" media="print" />');
+                //Append the DIV contents.
+                frameDoc.document.write(contents);
+                frameDoc.document.write('</body></html>');
+                frameDoc.document.close();
+                setTimeout(function () {
+                    window.frames["frame1"].focus();
+                    window.frames["frame1"].print();
+                    frame1.remove();
+                }, 500);
+
+            });
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+
+                type: "POST",
+
+                dataType: "json",
+
+                contentType: "application/json",
+
+                url: '@Url.Action("VisualizeUrunResult6", "Grafik")',
+
+                success: function (result) {
+
+                    google.charts.load('current', {
+
+                        'packages': ['corechart']
+
+                    });
+
+                    google.charts.setOnLoadCallback(function () {
+
+                        drawChart(result);
+
+                    });
+
+                }
+
+            });
+
+        });
+
+
+
+        function drawChart(result) {
+
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Name');
+
+            data.addColumn('number', 'Kiralama Fiyat');
+
+            var dataArray = [];
+
+
+
+            $.each(result, function (i, obj) {
+
+                dataArray.push([obj.Urnad, obj.kiralamaF]);
+
+            });
+
+            data.addRows(dataArray);
+
+
+
+            var columnChartOptions = {
+
+                title: "Ürün-Kiralama Fiyat Grafiği",
+
+                width: 1000,
+
+                height: 400,
+
+                bar: { groupWidth: "20%" },
+
+            };
+
+
+
+            var columnChart = new google.visualization.ColumnChart(document
+
+                .getElementById('columnchart_div'));
+
+
+
+            columnChart.draw(data, columnChartOptions);
+
+        }
+
+    </script>
+
+
+
+
+
+</head>
+
+<body>
+    <div id="print_div">
+        <div id="columnchart_div"></div>
+
+    </div>
+        <button type="button" id="btnPrint" class="btn btn-default btn-sm mar-top pull-right"><i class="fa fa-print"></i>Tabloyu Yazdır</button>
+</body>
+
+</html>
+
+

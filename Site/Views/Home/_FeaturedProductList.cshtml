@@ -1,0 +1,26 @@
+﻿@using Site.Entity
+@model IEnumerable<Product>
+
+
+
+<h3>Popüler Ürünler</h3>
+<ul class="nav nav-list promowrapper">
+    @foreach (var item in Model)
+    {
+
+
+        <li>
+            <div class="thumbnail">
+                <a href="/Home/ProductDetails/@item.ID">
+                    <img src="/Content/image/@item.RESIM" style="width: 100%; max-height: 267px; max-width: 207px; min-height: 267px; min-width: 207px;" alt="bootstrap ecommerce templates">
+                </a>
+                <div class="caption">
+                    <h4><a class="defaultBtn" href="/Home/ProductDetails/@item.ID" style="background-color:chartreuse">Görüntüle</a> <span class="pull-right">@item.FIYAT (₺)</span></h4>
+                </div>
+            </div>
+        </li>
+        <li style="border:0"> &nbsp;</li>
+
+
+    }
+</ul>

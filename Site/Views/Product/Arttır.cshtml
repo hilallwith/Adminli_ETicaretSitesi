@@ -1,0 +1,13 @@
+﻿@model Site.Entity.Product
+@{
+    ViewBag.Title = "Arttır";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="form-group">
+    @Html.LabelFor(model => model.TOPLAM, "toplam", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.TOPLAM, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.TOPLAM, "", new { @class = "text-danger" })
+    </div>
+</div>

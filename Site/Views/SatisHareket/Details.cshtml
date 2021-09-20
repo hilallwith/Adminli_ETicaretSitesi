@@ -1,0 +1,75 @@
+﻿@model Site.Entity.SatisHareket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SatisHareket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cariler.CariAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cariler.CariAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Perso.PersonelAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perso.PersonelAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.OAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.OAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToplamTutar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToplamTutar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SatisID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,169 @@
+﻿@model Site.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.AD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.AD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YONET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YONET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIXEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIXEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESIM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESIM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YORUM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YORUM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FIYAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIYAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KONU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KONU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOPLAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOPLAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desctription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desctription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFeatured)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFeatured)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsApproved)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

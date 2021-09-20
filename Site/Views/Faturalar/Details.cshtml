@@ -1,0 +1,83 @@
+﻿@model Site.Entity.Faturalar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Faturalar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FaturaSeriNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaturaSeriNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FaturaSıraNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaturaSıraNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VergiDairesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VergiDairesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Toplamtutar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Toplamtutar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimEden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimEden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimAlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimAlan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FaturaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

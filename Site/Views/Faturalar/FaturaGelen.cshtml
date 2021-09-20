@@ -1,0 +1,110 @@
+﻿
+@using Site.Models
+@model IEnumerable<AdminOrder>
+@{
+    ViewBag.Title = "FaturaGelen";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <!-- /.box -->
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"> Sipariş Durumu</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Yeni Fatura</a>
+                <br />
+                <br />
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <div class="row">
+
+                            <h2 class="panel-title pull-left" style="margin-left:10px;">
+
+                                <strong>Fatura Detayları</strong>
+
+                            </h2>
+
+                            <button style="margin-right:10px" class="btn btn-primary pull-right" onclick="addNewOrder()">New Order</button>
+
+                        </div>
+
+                    </div>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+
+                                <th>Sipariş Numarası</th>
+                                <th>Sipariş tarihi</th>
+                                <th>Sipariş durumu</th>
+                                <th>Toplam (₺)</th>
+                                <th>Ürün sayısı</th>
+
+
+                                <th></th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Id
+                                    </td>
+                                    <td>
+                                        @item.OrderNumber
+                                    </td>
+                                    <td>
+                                        @item.OrderDate
+                                    </td>
+                                    <td>
+                                        @item.OrderState
+                                    </td>
+                                    <td>
+                                        @item.Total
+                                    </td>
+                                    <td>
+                                        @item.Count
+                                    </td>
+
+                                    <td>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+
+                                <th>Sipariş Numarası</th>
+                                <th>Sipariş tarihi</th>
+                                <th>Sipariş durumu</th>
+                                <th>Toplam (₺)</th>
+                                <th>Ürün sayısı</th>
+
+
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+
+

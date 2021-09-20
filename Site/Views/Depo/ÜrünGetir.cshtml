@@ -1,0 +1,18 @@
+﻿
+@model Site.Entity.Product
+@{
+    ViewBag.Title = "ÜrünGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ÜrünGetir</h2>
+
+@using (Html.BeginForm("Guncelle", "Depo", FormMethod.Post)) { 
+
+    @Html.HiddenFor(x=>x.ID)
+    @Html.LabelFor(x=>x.TOPLAM)
+    @Html.TextBoxFor(x=>x.TOPLAM , new { @class="form-control"})
+
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+}

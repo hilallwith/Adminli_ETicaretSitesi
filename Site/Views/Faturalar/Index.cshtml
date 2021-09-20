@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Site.Entity.Faturalar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Fatura Listesi</h3>
+                </div><!-- /.box-header -->
+                <br />
+                <div>
+                    @using (Html.BeginForm("Index", "QR"))
+                    {
+                        <input type="text" name="kod" />
+                        <input type="submit" value="QR Oluştur" />
+
+                    }
+                    <br />
+                    @if (ViewBag.karekodimage != null)
+                    {
+
+                        <img src="@ViewBag.karekodimage" alt="" style="width:400px; height:400px" />
+                    }
+                </div>
+                <div class="box-body">
+                    <br />
+
+                    <br />
+                    <table id="" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+
+                                <th>Fatura Seri-Sıra No</th>
+
+                                <th>Vergi Dairesi</th>
+                                <th>Tarih</th>
+                                <th>Saat</th>
+                                <th>Toplam</th>
+                                <th>Teslim Eden </th>
+                                <th>Teslim Alan</th>
+                                <th>Teslim Detaylar</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+
+                                <tr>
+
+                                    <td>
+                                        @item.FaturaSeriNo-@item.FaturaSıraNo
+                                    </td>
+
+                                    <td>
+                                        @item.VergiDairesi
+                                    </td>
+                                    <td>
+                                        @item.Tarih
+                                    </td>
+                                    <td>
+                                        @item.Saat
+                                    </td>
+                                    <td>
+                                        @item.Toplamtutar
+                                    </td>
+                                    <td>
+                                        @item.TeslimEden
+                                    </td>
+                                    <td>
+                                        @item.TeslimAlan
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary " href="@Url.Action("Edit",new { id=item.FaturaID})"><i class="fa fa-fw fa-edit"></i>Burayı düzenle</a>
+
+                                        <a class="btn btn-primary " href="@Url.Action("FaturaCikti",new { id=item.FaturaID})"><i class="fa fa-fw fa-edit"></i>Pdf</a>
+                                        <a class="btn btn-primary btn-sm" href="@Url.Action("FaturaDetay",new { id = item.FaturaID } )"><i class="fa fa-fw fa-edit"></i>Detay</a>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                                <th>Fatura Seri-Sıra No</th>
+
+                                <th>Vergi Dairesi</th>
+                                <th>Tarih</th>
+                                <th>Saat</th>
+                                <th>Toplam</th>
+                                <th>Teslim Eden </th>
+                                <th>Teslim Alan</th>
+                                <th>Teslim Detaylar</th>
+                                <th></th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <button></button>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section><!-- /.content -->

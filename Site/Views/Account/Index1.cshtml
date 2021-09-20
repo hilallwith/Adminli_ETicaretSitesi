@@ -1,0 +1,49 @@
+﻿
+@using Site.Models
+@model IEnumerable<UserKiralama>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="span12">
+
+        <div class="well well-small">
+
+
+
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>kiralama numarası</th>
+                        <th>Kiralama Tarihi </th>
+                        <th>Kiralama tutarı </th>
+                        <th>Kiralama Durumu</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.OrderNumber</td>
+                            <td>@item.OrderDate</td>
+                            <td>@item.Total</td>
+                            <td>@item.OrderState</td>
+                            <td>@Html.ActionLink("Kiralık Detay", "Details1", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

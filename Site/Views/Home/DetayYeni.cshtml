@@ -1,0 +1,27 @@
+﻿
+
+@using Site.Entity
+@model IEnumerable<Yorum>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetayYeni</title>
+</head>
+<body>
+    <div class="form-group">
+        <label>Yorum Yaz</label>
+        <textarea class="form-control" rows="3" placeholder="Enter ..." style="width:300px; height:30px"></textarea>
+        <button>Ekle</button>
+    </div>
+    <br />
+    <br />
+    @foreach (var item in Model)
+    {
+       <p>@item.Icerik</p>
+    }
+</body>
+</html>

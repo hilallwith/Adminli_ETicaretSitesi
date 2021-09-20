@@ -1,0 +1,87 @@
+﻿@using Site.Entity
+
+@model Product
+
+
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Sumary", "Cart")
+            </ul>
+        </div>
+        @Html.Action("_FeaturedProductList", "Home")
+
+
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/Home/Index">Anasayfa</a> <span class="divider">/</span></li>
+            <li><a href="/Home/Product">Filmler</a> <span class="divider">/</span></li>
+            <li class="active">Film Detay</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+
+                        <div class="item">
+                            <a href="#"> <img src="~/Content/image/@Model.RESIM" alt="" style="width:100%; max-height:267px; max-width:215px; min-height:267px; min-width:215px;"></a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@Model.OAD</h3>
+                    <span style=" font-size: 18px;line-height: 1.5em"> Film Saati: @Model.SAAT</span>
+                    <br /><br />
+                    <span style=" font-size: 18px;line-height: 1.5em"> Dublaj\Altyazı:   @Model.SES</span>
+                    <br /><br />
+                    <span style=" font-size: 18px;line-height: 1.5em">Görüntü:  @Model.YORUM px</span>
+                    <hr class="soft">
+                    <br />
+                    @using (Html.BeginForm("AddToCart", "Cart", new { @class = "form-horizontal qtyFrm" }))
+
+                    {
+                        @Html.HiddenFor(i => i.ID)
+                        <div class="control-group">
+                            <label class="control-label"><span style=" font-size: 25px;line-height: 1.5em; background-color:chartreuse">@Model.FIYAT ₺</span></label>
+
+                        </div>
+
+
+
+                        <h4>@Model.TOPLAM Adet Kaldı...</h4>
+                        <p>
+                            @Model.Desctription
+                        </p><p>
+                            <button type="submit" class="shopBtn" style="background-color:chartreuse"><span class=" icon-shopping-cart"></span> Sepete Ekle</button>
+                        </p>
+                    }
+                </div>
+            </div>
+            <br />
+            <br />
+            <h3 style="background-color:chartreuse; text-align:center">KONUSU</h3>
+            <p style=" font-size: 18px;line-height: 1.5em">@Model.KONU</p>
+            <hr class="softn clr">
+
+
+
+
+        </div>
+
+    </div>
+
+   
+ 
+ 
+
+</div>
+

@@ -1,0 +1,89 @@
+﻿@model Site.Entity.Faturalar
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Faturalar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FaturaSeriNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaturaSeriNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FaturaSıraNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaturaSıraNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VergiDairesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VergiDairesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Toplamtutar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Toplamtutar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimEden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimEden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimAlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimAlan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

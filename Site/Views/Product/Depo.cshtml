@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Site.Entity.Product>
+@{
+    ViewBag.Title = "Depo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Film Listesi</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <br />
+              
+                    <br />
+
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Resim</th>
+                                <th>Adı</th>
+                                <th>Adet</th>
+                               
+
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+
+                            <tr>
+                                <td><img src="~/Content/image/@item.RESIM" width="80" height="60" /></td>
+                                <td>
+                                    @item.OAD
+                                </td>
+                                <td>
+                                    @item.TOPLAM
+                                </td>
+
+
+                                <td>
+                                    <a class="btn btn-primary " href="@Url.Action("Arttır",new { id=item.ID})"><i class="fa fa-fw fa-edit"></i>Burayı düzenle</a>
+                                    
+
+                                </td>
+
+                            </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Resim</th>
+                                <th>Adı</th>
+                                <th>Onaylı</th>
+                                <th>anasayfa</th>
+                                <th>Popüler</th>
+                                <th>Kategori Adı</th>
+
+                                <th></th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section><!-- /.content -->

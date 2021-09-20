@@ -1,0 +1,165 @@
+﻿@model Site.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <h3>Filmi Dilek İstediğinizden Eminmisiniz</h3>
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                Adı
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OAD)
+            </dd>
+
+            <dt>
+                Yönetmen
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YONET)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PIXEL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PIXEL)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SES)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SES)
+            </dd>
+
+            <dt>
+                Resim
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RESIM)
+                <img src="~/Content/image/@Model.RESIM" width="50" , height="40" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YORUM)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YORUM)
+            </dd>
+
+            <dt>
+                Fiyat
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FIYAT)
+            </dd>
+
+            <dt>
+                Konu
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KONU)
+            </dd>
+
+            <dt>
+                Adet
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TOPLAM)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.KAT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KAT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALIS)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALIS)
+            </dd>
+
+            <dt>
+                anasayfa
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsHome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Desctription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Desctription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Slider)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Slider)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsFeatured)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsFeatured)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SAAT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SAAT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsApproved)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" /> |
+                @Html.ActionLink("Film Listesi Listesi", "Index", null, new { @class = "btn btn-warning" })
+            </div>
+        }
+    </div>
+</section>

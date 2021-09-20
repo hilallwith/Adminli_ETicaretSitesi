@@ -1,0 +1,99 @@
+﻿
+@using Site.Models
+@model OrderDetails
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div>
+        <h4>Sipariş Bilgieri</h4>
+        <hr />
+        <div class="row">
+            @if (TempData["mesaj"] != null)
+            {
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>	<i class="icon fa fa-check"></i> BAŞARILI!</h4>
+                    Sipariş durumu Kaydedildi
+                </div>
+            }
+        </div>
+        <dl class="dl-horizontal">
+
+
+
+            <dt>
+                Posta Kodu:
+            </dt>
+
+
+            <dd>
+                @Html.DisplayFor(Model => Model.PostaKodu)
+            </dd>
+            <dt>
+                Adres
+            </dt>
+
+
+            <dd>
+                Adres Başlığı:@Html.DisplayFor(Model => Model.Adres)
+                <br />
+                Adres :   @Html.DisplayFor(Model => Model.Adres)
+                <br />
+                Mahalle  @Html.DisplayFor(Model => Model.Mahalle)
+                <br />
+                İlçe  @Html.DisplayFor(Model => Model.Semt)
+                <br />
+                Şehir   @Html.DisplayFor(Model => Model.Sehir)
+                <br />
+
+            </dd>
+        </dl>
+    </div>
+
+
+
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Resim</th>
+                <th>Film Adı  </th>
+                <th>Satın Alma Durumu </th>
+                <th>Adet</th>
+
+                <th></th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model.OrderLines)
+            {
+                <tr>
+                    <td><img src="~/Content/image/@item.RESIM" height="75" width="75" /></td>
+                    <td>@item.ProductName</td>
+                    <td>
+                        @if (item.FIYAT <= 0)
+                        {
+                            <label class="label label-danger"><i class="fa fa-fw fa-check-circle-o"></i>Stokta Yok</label>
+                        }
+                        else
+                        {
+                            <label class="label label-success"><i class="fa fa-fw fa-times-circle"></i>Stokta Var</label>
+                        }
+                    </td>
+                    <td>@item.Quantity</td>
+                    <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-success" target="_blank">Ürün Detay </a></td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+   <button>Pdf</button>
+</section>
+
+
+
